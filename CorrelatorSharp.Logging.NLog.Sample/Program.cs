@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CorrelatorSharp;
+using CorrelatorSharp.Logging;
 
 namespace CorrelatorSharp.Logging.NLog.Sample
 {
@@ -14,9 +15,9 @@ namespace CorrelatorSharp.Logging.NLog.Sample
 
             _logger = LogManager.GetLogger("NLogSample");
 
-            using (var scope = new ActivityScope("Main Operation")) {
+            using (ActivityScope.New("Main Operation"))
+            {
                 _logger.LogTrace("preparing to do work");
-
                 DoWork().Wait();
             }
         }
@@ -25,12 +26,14 @@ namespace CorrelatorSharp.Logging.NLog.Sample
         {
             _logger.LogTrace("doing work");
 
-            using (var scope = new ActivityScope("Nested Operation 1")) {
+            using (ActivityScope.New("Nested Operation 1"))
+            {
                 await Task.Delay(TimeSpan.FromSeconds(1));
                 _logger.LogTrace("done processing");
             }
 
-             using (var scope = new ActivityScope("Nested Operation 2")) {
+            using (ActivityScope.New("Nested Operation 2"))
+            {
                 await Task.Delay(TimeSpan.FromSeconds(1));
                 _logger.LogTrace("done processing");
             }

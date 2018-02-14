@@ -1,5 +1,4 @@
-﻿using CorrelatorSharp.Logging;
-using NLogLogManager = NLog.LogManager;
+﻿using NLogLogManager = NLog.LogManager;
 
 namespace CorrelatorSharp.Logging.NLog
 {
