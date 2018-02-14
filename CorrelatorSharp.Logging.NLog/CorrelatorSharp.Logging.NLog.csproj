@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>CorrelatorSharp.Logging.NLog</PackageId>
 
-    <Version>1.3.0-beta1</Version>
+    <Version>1.3.0-beta2</Version>
 
     <!--Bump the assembly version only on major releases-->
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
